@@ -32,8 +32,17 @@ def generate_data(n_dice, offset=0):
 
 def main():
     data = generate_data(3)
-    plt.bar(data[0], data[1])
-    plt.show()
+    s = 0
+    for i in range(len(data[0])):
+        value = 100*data[1][i]
+        s += value
+        print("{0:>2}: {1: 2.02f}%\t{2:.02f}".format(
+            data[0][i],
+            value,
+            s))
+
+    # plt.bar(data[0], data[1])
+    # plt.show()
 
 
 if __name__ == "__main__":

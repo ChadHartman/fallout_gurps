@@ -1,39 +1,120 @@
 # Characters
 
-S.P.E.C.I.A.L. Cost = (_Desired Level_ - 5) * 10
+## S.P.E.C.I.A.L.
 
-> Locked after creation
+Cost = (_Desired Level_ - 6) * 10
 
-Skill Cost = (_Desired Level_ - 5) * 5
+## Skills
+
+Cost = (_Desired Level_ - 5) * 5
+
+Skills         | Value at creation
+---------------|---
+Barter         | Charisma - 1
+Energy Weapons | Perception - 1
+Explosives     | Perception - 1
+Guns           | Agility - 1
+Lockpick       | Perception - 1
+Medicine       | Intelligence - 1
+Melee Weapons  | Strength - 1
+Repair         | Intelligence - 1
+Science        | Intelligence - 1
+Sneak          | Agility - 1
+Speech         | Charisma - 1
+Survival       | Endurance - 1
+Unarmed        | Endurance - 1
 
 ## Types
 
-### Robot
+### Ghouls
 
-Starting XP: 
+* Starting XP: 770
+* Karma: -5
+* Perk(s)
+    * Radiation Immunity
 
 S.P.E.C.I.A.L. | Base Value
 ---------------|---
-strength       | 5   
-perception     | 5   
-endurance      | 5   
-charisma       | 5   
-intelligence   | 5       
-agility        | 5
-luck           | 5
+Strength       | 6
+Perception     | 6
+Endurance      | 13
+Charisma       | 6
+Intelligence   | 6
+Agility        | 6
+Luck           | 6
 
-Skills         | Base Value
+### Humans
+
+* Starting XP: 1000
+* Karma: 0
+* Damage Threshold: 0
+
+S.P.E.C.I.A.L. | Base Value
 ---------------|---
-barter         | charisma - 1
-energy_weapons | perception - 1
-explosives     | perception - 1
-guns           | agility - 1
-lockpick       | perception - 1
-medicine       | intelligence - 1
-melee_weapons  | strength - 1
-repair         | intelligence - 1
-science        | intelligence - 1
-sneak          | agility - 1
-speech         | charisma - 1
-survival       | endurance - 1
-unarmed        | endurance - 1
+Strength       | 6   
+Perception     | 6   
+Endurance      | 6   
+Charisma       | 6   
+Intelligence   | 6       
+Agility        | 6
+Luck           | 6
+
+### Robots
+
+* Starting XP: 1000
+* Karma: 0
+* Damage Threshold: 2
+* Perk(s)
+    * Radiation Immunity
+    * Poison Immunity
+* Hinderance(s)
+    * Unable to wear human armor
+
+S.P.E.C.I.A.L. | Base Value
+---------------|---
+Strength       | 6   
+Perception     | 6   
+Endurance      | 6   
+Charisma       | 6   
+Intelligence   | 6       
+Agility        | 6
+Luck           | 6
+
+### Super Mutants
+
+* Starting XP: 620
+* Karma: -10
+* Damage Threshold: 1
+* Perk
+    * Radiation Immunity
+* Hinderance(s)
+    * Unable to wear human armor
+
+S.P.E.C.I.A.L. | Base Value
+---------------|---
+Strength       | 13   
+Perception     | 6   
+Endurance      | 11   
+Charisma       | 6   
+Intelligence   | 6       
+Agility        | 6
+Luck           | 6
+
+### Synth
+
+* Starting XP: 850
+* Karma: -10
+* Damage Threshold: 0
+* Perk(s)
+    * Radiation Immunity
+    * Poison Immunity
+
+S.P.E.C.I.A.L. | Base Value
+---------------|---
+Strength       | 6   
+Perception     | 6   
+Endurance      | 6   
+Charisma       | 6   
+Intelligence   | 11       
+Agility        | 6
+Luck           | 6
