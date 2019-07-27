@@ -12,7 +12,7 @@ Skill Cost = (_Desired Level_ - 5) * 5
 
 Starting XP: 
 
-S.P.E.C.I.A.L. | 
+S.P.E.C.I.A.L. | Base Value
 ---------------|---
 strength       | 5   
 perception     | 5   
@@ -22,7 +22,7 @@ intelligence   | 5
 agility        | 5
 luck           | 5
 
-Skills         | 
+Skills         | Base Value
 ---------------|---
 barter         | charisma - 1
 energy_weapons | perception - 1
