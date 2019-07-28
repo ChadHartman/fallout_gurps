@@ -7,9 +7,7 @@ from weapon import Weapon
 
 def convert_weapons(weapons):
 
-    # weapons.sort(key=lambda w: w.damage, reverse=True)
-    weapons.sort(key=lambda w: w.str_req, reverse=False)
-
+    weapons.sort(key=lambda w: w.damage, reverse=True)
     cols_printed = False
 
     for weapon in weapons:

@@ -1,4 +1,4 @@
-import text_util
+import utils
 import math
 
 
@@ -126,25 +126,33 @@ class Weapon(object):
             .replace("⁵", "")\
             .replace("(GRA)", "")
 
-        return text_util.remove_whitespace(name)
+        return utils.remove_whitespace(name)
 
     def __parse_dmg__(self, obj):
 
+        value = 0
+
         if "Damage per second" in obj:
-            return float(obj["Damage per second"])
-
-        dmg_per_shot = obj["Damage per shot"]
-
-        if "+" in dmg_per_shot and not "x" in dmg_per_shot:
-            return float(dmg_per_shot.split("+")[1])
-
-        elif "x" in dmg_per_shot:
-            # 1 +(75x6)
-            start = dmg_per_shot.index("(")
-            end = dmg_per_shot.index(")")
-            sub = dmg_per_shot[start+1:end]
-            comps = sub.split("x")
-            return float(comps[0])*float(comps[1])
-
+            value = float(obj["Damage per second"])
         else:
-            return 0.0
+            dmg_per_shot = obj["Damage per shot"]
+
+            if "+" in dmg_per_shot and not "x" in dmg_per_shot:
+                value = float(dmg_per_shot.split("+")[1])
+
+            elif "x" in dmg_per_shot:
+                # 1 +(75x6)
+                start = dmg_per_shot.index("(")
+                end = dmg_per_shot.index(")")
+                sub = dmg_per_shot[start+1:end]
+                comps = sub.split("x")
+                value = float(comps[0])*float(comps[1])
+
+            else:
+                value = 0.0
+
+        #average_hp = 10
+        average_game_hp = 200.0
+        percent_damage = value / average_game_hp
+
+        return percent_damage
