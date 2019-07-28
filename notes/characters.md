@@ -100,6 +100,7 @@ Luck           | 6
 * Perk
     * Radiation Immunity
 * Hinderance(s)
+    * Hated by Humans
     * Unable to wear human armor
 
 S.P.E.C.I.A.L. | Base Value
@@ -123,6 +124,8 @@ Luck           | 6
 * Perk(s)
     * Radiation Immunity
     * Poison Immunity
+* Hinderances
+    * Hated by Humans
 
 S.P.E.C.I.A.L. | Base Value
 ---------------|---
