@@ -28,21 +28,22 @@ def jsonify(rows):
     return array
 
 
-def parse(filename):
+def parse(outdir, filename):
 
     if not filename.endswith('.html'):
         return
+        
+    if not os.path.isdir(outdir):
+        os.makedirs(outdir)
 
     parser = TableParser()
     with open(filename, 'r') as f:
         parser.feed("".join(f.readlines()))
 
-    # for row in parser.rows:
-    #     print("{0}\t: {1}".format(len(row), json.dumps(row)))
-
     outfile = filename.split("/")[-1]
+    # Remove file extension
     outfile = ".".join(outfile.split(".")[:-1])
-    outfile = "../out/" + outfile + ".json"
+    outfile = os.path.join(outdir, outfile + ".json")
 
     try:
         with open(outfile, 'w') as f:
@@ -56,10 +57,14 @@ def parse(filename):
 def main():
 
     for filename in os.listdir("../assets/armor"):
-        parse(os.path.join("../assets/armor", filename))
+        parse(
+            "../out/armor",
+            os.path.join("../assets/armor", filename))
 
     for filename in os.listdir("../assets/weapons"):
-        parse(os.path.join("../assets/weapons", filename))
+        parse(
+            "../out/weapons",
+            os.path.join("../assets/weapons", filename))
 
 
 if __name__ == "__main__":

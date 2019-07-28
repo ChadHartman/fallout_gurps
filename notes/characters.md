@@ -28,10 +28,13 @@ Unarmed        | Endurance - 1
 
 ### Ghouls
 
-* Starting XP: 770
+* Starting XP: 720
 * Karma: -5
 * Perk(s)
     * Radiation Immunity
+* Skills
+    * Sneak + 1
+    * Unarmed + 1
 
 S.P.E.C.I.A.L. | Base Value
 ---------------|---
@@ -48,6 +51,9 @@ Luck           | 6
 * Starting XP: 1000
 * Karma: 0
 * Damage Threshold: 0
+* Skills
+    * Barter + 1
+    * Speech + 1
 
 S.P.E.C.I.A.L. | Base Value
 ---------------|---
@@ -64,6 +70,9 @@ Luck           | 6
 * Starting XP: 1000
 * Karma: 0
 * Damage Threshold: 2
+* Skills
+    * Repair + 1
+    * Science + 1
 * Perk(s)
     * Radiation Immunity
     * Poison Immunity
@@ -85,6 +94,9 @@ Luck           | 6
 * Starting XP: 620
 * Karma: -10
 * Damage Threshold: 1
+* Skills
+    * Melee Weapons + 1
+    * Explosives + 1
 * Perk
     * Radiation Immunity
 * Hinderance(s)
@@ -105,6 +117,9 @@ Luck           | 6
 * Starting XP: 850
 * Karma: -10
 * Damage Threshold: 0
+* Skills
+    * Energy Weapons + 1
+    * Science + 1
 * Perk(s)
     * Radiation Immunity
     * Poison Immunity
