@@ -7,12 +7,40 @@ from weapon import Weapon
 
 def convert_weapons(weapons):
 
-    weapons.sort(key=lambda w: w.damage, reverse=True)
+    # weapons.sort(key=lambda w: w.damage, reverse=True)
+    weapons.sort(key=lambda w: w.str_req, reverse=False)
+
+    cols_printed = False
 
     for weapon in weapons:
-        print(weapon.__dict__)
-        # print("{0: <40} {1: <16} {2: <16}".format(
-        #     weapon.name, weapon.skill, weapon.damage))
+
+        f = "{:<36}\t{:<10}\t{:>6}\t{:<16}\t{:>10}\t{:>3}\t{:>6}\t{:>5}\t{:>9}\t{:>13}"
+
+        if not cols_printed:
+            print(f.format(
+                "Name",
+                "Skill",
+                "Damage",
+                "Ammo Type",
+                "Atk/Reload",
+                "AOE",
+                "Weight",
+                "Cost",
+                "Skill Req",
+                "Strength Req"))
+            cols_printed = True
+
+        print(f.format(
+            weapon.name,
+            weapon.skill,
+            weapon.damage,
+            weapon.ammo_type,
+            weapon.attacks_until_reload,
+            weapon.aoe,
+            weapon.weight,
+            weapon.cost,
+            weapon.skill_req,
+            weapon.str_req))
 
 
 def load_weapons():
