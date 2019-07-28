@@ -15,6 +15,25 @@ def remove_whitespace(value):
     return value.strip()
 
 
+class Median(object):
+
+    def __init__(self):
+        self.data = []
+
+    def add(self, value):
+        self.data.append(value)
+
+    def calc(self):
+        if not self.data:
+            return 0
+
+        self.data.sort()
+
+        index = int(round(len(self.data)/2.0))
+
+        return self.data[index]
+
+
 class Average(object):
     def __init__(self):
         self.sum = 0
@@ -33,22 +52,52 @@ class Average(object):
         return "{}".format(state)
 
 
-def __get_avg__(count, av=Average(), total=0):
-
+def __permutate__(metric, count, total=0):
     for i in range(6):
         if count == 1:
-            av.add(total+i+1)
+            metric.add(total+i+1)
         else:
-            __get_avg__(count-1, av, total+i+1)
-
-    return av
+            __permutate__(metric, count-1,  total+i+1)
 
 
 def avg_dmg(dice_count, offset=0, mult=1):
-
-    a = __get_avg__(dice_count)
+    a = Average()
+    #a = Median()
+    __permutate__(a, dice_count)
     return (a.calc()+offset)*mult
 
 
+def analyze_damages():
+
+    data = []
+
+    dice_count = 5
+    max_mult = 3
+
+    for m in range(1, max_mult+1):
+        for d in range(dice_count):
+            key = ""
+            if m == 1:
+                key = str(d+1) + "d"
+            else:
+                key = "{}dx{}".format(d+1, m)
+            data.append((key, avg_dmg(d+1, 0, m)))
+
+    for o in range(-2, 3):
+        for d in range(dice_count):
+            key = str(d+1)+"d"
+            if o < 0:
+                key += str(o)
+            elif o > 0:
+                key += "+" + str(o)
+
+            data.append((key, avg_dmg(d+1, o)))
+
+    data.sort(key=lambda tup: tup[1])
+
+    for item in data:
+        print("{:>4}: {}".format(item[0], item[1]))
+
+
 if __name__ == "__main__":
-    print(avg_dmg(3))
+    analyze_damages()
