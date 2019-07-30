@@ -8,7 +8,7 @@ Cost = (_Desired Level_ - 6) * 10
 
 ## Skills
 
-Cost = (_Desired Level_ - 5) * 5
+Cost = (_Purchased Skill_ + 1) * 5
 
 Skills         | Value at creation
 ---------------|---

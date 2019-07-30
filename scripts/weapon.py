@@ -121,6 +121,9 @@ class Weapon(object):
         self.aoe = self.__parse_aoe__(obj)
         self.skill = self.__parse_skill__(filepath)
         self.attacks_until_reload = self.__parse_aur__(obj)
+        self.spread = float(obj["Weapon Spread"]
+                            ) if "Weapon Spread" in obj else -1.0
+        self.is_highlighted = obj["is_highlighted"] == "True"
 
     def __parse_str_req__(self, obj):
         value = int(obj["Strength required"])

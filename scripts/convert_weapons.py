@@ -28,6 +28,10 @@ def convert_weapons(weapons):
                 "Strength Req"))
             cols_printed = True
 
+        if weapon.is_highlighted:
+            # Highlighted means unique, which we're not using
+            continue
+
         print(f.format(
             weapon.name,
             weapon.skill,

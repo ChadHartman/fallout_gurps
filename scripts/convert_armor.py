@@ -7,7 +7,7 @@ from armor import Armor
 
 def convert_armor(armor):
 
-    armor.sort(key=lambda a: int(a.weight), reverse=True)
+    armor.sort(key=lambda a: int(a.name), reverse=True)
     cols_printed = False
     f = "{:<32}\t{:<16}\t{:>2}\t{:>5}\t{:>5}\t{:<16}\t{}"
 
@@ -23,6 +23,10 @@ def convert_armor(armor):
                 "Faction",
                 "Effect"))
             cols_printed = True
+
+        if a.is_highlighted:
+            # Not using unique items
+            continue
 
         print(f.format(
             a.name,

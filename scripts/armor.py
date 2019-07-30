@@ -100,6 +100,7 @@ class Armor(object):
         self.effect = self.__parse_effect__(obj)
         self.weight = self.__parse_weight__(obj)
         self.faction = self.__parse_faction__(obj)
+        self.is_highlighted = obj["is_highlighted"] == "True"
 
     def __parse_effect__(self, obj):
         value = obj["Effect"]

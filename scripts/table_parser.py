@@ -11,6 +11,7 @@ class TableParser(HTMLParser):
         self.current_item = []
         self.record_data = False
         self.in_th = False
+        self.is_highlighted = False
 
     def __clean__(self, value):
         value = value.replace("\n", "").replace("\t", " ")
@@ -30,6 +31,11 @@ class TableParser(HTMLParser):
         elif tag == 'td':
             self.record_data = True
         elif tag == 'tr':
+            for pair in attrs:
+                if (pair[0] == "class" and pair[1] == "va-table-highlight") or\
+                        (pair[0] == "style" and pair[1] == "background:#D6DBC1;"):
+                    self.is_highlighted = True
+
             self.rows.append([])
         elif tag == "span" and self.in_th:
             capture_title = False
@@ -53,7 +59,13 @@ class TableParser(HTMLParser):
             self.record_data = False
             self.current_item = []
 
-        if tag == "th":
+        if tag == "tr":
+            if len(self.rows) == 1:
+                self.rows[-1].append("is_highlighted")
+            else:
+                self.rows[-1].append(str(self.is_highlighted))
+            self.is_highlighted = False
+        elif tag == "th":
             self.in_th = False
 
     def handle_data(self, data):
@@ -67,7 +79,9 @@ class TableParser(HTMLParser):
 def main():
 
     parser = TableParser()
-    with open("../assets/weapons/unarmed.html", 'r') as f:
+    filepath = "../assets/weapons/unarmed.html"
+    # filepath = "../assets/armor/light-armor.html"
+    with open(filepath, 'r') as f:
         parser.feed("".join(f.readlines()))
 
     import json
