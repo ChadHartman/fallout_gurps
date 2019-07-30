@@ -9,7 +9,7 @@ def convert_weapons(weapons):
 
     weapons.sort(key=lambda w: w.damage, reverse=True)
     cols_printed = False
-
+    
     for weapon in weapons:
 
         f = "{:<36}\t{:<10}\t{:>6}\t{:<16}\t{:>10}\t{:>3}\t{:>6}\t{:>5}\t{:>9}\t{:>13}"
@@ -39,6 +39,7 @@ def convert_weapons(weapons):
             weapon.cost,
             weapon.skill_req,
             weapon.str_req))
+            
 
 
 def load_weapons():
@@ -46,23 +47,23 @@ def load_weapons():
     weapons = []
     filepath = None
 
-    try:
-        weapon_dir = "../out/weapons"
-        for filename in os.listdir(weapon_dir):
-            if not filename.endswith(".json"):
-                continue
+    # try:
+    weapon_dir = "../out/weapons"
+    for filename in os.listdir(weapon_dir):
+        if not filename.endswith(".json"):
+            continue
 
-            filepath = os.path.join(weapon_dir, filename)
+        filepath = os.path.join(weapon_dir, filename)
 
-            with open(filepath, 'r') as f:
-                for json_obj in json.load(f):
-                    weapons.append(Weapon(filepath, json_obj))
+        with open(filepath, 'r') as f:
+            for json_obj in json.load(f):
+                weapons.append(Weapon(filepath, json_obj))
 
-        convert_weapons(weapons)
+    convert_weapons(weapons)
 
-    except Exception as e:
-        print("Error in " + filepath)
-        raise e
+    # except Exception as e:
+    #     print("Error in " + filepath)
+    #     raise e
 
 
 def main():

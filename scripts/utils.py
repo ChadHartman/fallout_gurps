@@ -1,6 +1,16 @@
 import copy
 
 
+def filter_unicode(value):
+    out_value = ""
+    
+    for c in value:
+        if ord(c) < 128:
+            out_value += c
+
+    return out_value
+
+
 def remove_whitespace(value):
     value = value.replace("\n", " ")\
         .replace("\r", " ")\
