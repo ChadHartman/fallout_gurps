@@ -4,6 +4,8 @@
 
 Cost = (_Desired Level_ - 6) * 10
 
+> Locked after creation
+
 ## Skills
 
 Cost = (_Desired Level_ - 5) * 5
